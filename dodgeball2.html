@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dodgeball2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="playStart()">
+
+<div class="wrapperDiv" id="wrapperDiv">
+
+    <div id="startScreen">
+        <div id="startBox1">
+            <h2>The class has voted.</h2>
+            <h2>Today's PE class will focus on one sport only...</h2>
+            <h2>Dodgeball. Survival style.</h2>
+            <h2>You have been selected as the first contender.</h2>
+            <button type="button" class="button yesButton" onclick={moveToBox2()}>OK</button>
+        </div>
+
+        <div id="startBox2" style="display: none">
+            <img id="hand" src="sprites/hand.png"></img>
+            <h2 id="readyQuestion">Are you ready?</h2>
+            <div id="readyButtons">
+                <button id="yesButton" class="button yesButton" onclick={playAnimation(true)}>Bring it on!</button>
+                <button id="noButton" class="button noButton" type="button" onclick={playAnimation(false)}>Please no :(</button>
+            </div>
+            <div id="finalText" style="display: none">
+                <h2 id="positiveResponse" style="display: none"></h2>
+                <h2 id="negativeResponse" style="display: none"></h2>
+            </div>
+        </div>
+    </div>
+    <div id="playAgain" style="display: none">
+        <button class="button noButton" onclick={resetGame()}>Play again</button>
+    </div>
+    <canvas id="playerLayer" width="800" height="920" ></canvas>
+    <canvas id="borderLayer" width="690" height="890"></canvas>
+    <canvas id="topLayer" width="800" height="920"
+            style=" z-index: 10"></canvas>
+
+    <canvas id="kidsLayer" width="820" height="920"
+            style=" z-index: 5"></canvas>
+    <canvas id="kidsLayer2" width="820" height="940"
+            style=" z-index: 5"></canvas>
+    <canvas id="kidsLayer3" width="820" height="920"
+            style=" z-index: 4"></canvas>
+    <canvas id="kidsLayer4" width="826" height="940"
+            style=" z-index: 6"></canvas>
+
+    <div id= "paddingDiv">
+
+    </div>
+    <div class="controlsDiv" id="controlsDiv" style="display: none">
+        <div style="position: inherit; height: 630px; top: 628px">
+            <div id="slowmoDiv">
+                <meter class="green" id="slowmoMeter" value="1000" min="0" max="1000"></meter>
+            </div>
+        </div>
+        <div style="position: inherit; height: 50px; width: 50px; left: 20px">
+            <img id="muteIcon" src="controls/audio_on.png" style="height: inherit; cursor: pointer" onclick={{updateMuted()}}>
+        </div>
+        <div style="position: inherit; height: 50px; padding-top: -10px;">
+            <img src="controls/arrowkeys.png">
+        </div>
+        <div style="position: inherit; height: 50px; padding-top: 20px;">
+            <img src="controls/wasdkeys.png">
+        </div>
+        <div style="position: inherit; height: 50px; padding-top: 20px;">
+            <img src="controls/spaceicon.png">
+        </div>
+    </div>
+
+</div>
+<script src="dodgeballscript.js"></script>
+  </body>
+  </html>
