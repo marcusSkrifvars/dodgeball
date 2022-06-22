@@ -40,7 +40,6 @@ var highScore = 0;
 
 if (sessionStorage.getItem("dodgeBallHighScore") != null) {
     highScore = sessionStorage.getItem("dodgeBallHighScore");
-//sessionStorage.setItem("dodgeBallHighScore", value)
 }
 
 var slowMoDivider = 1.0;
@@ -57,12 +56,12 @@ var deathSound = new Audio('sounds/deathsound.wav');
 var ballHitSound = new Audio('sounds/ballhitsound.wav');
 var whistleSound = new Audio('sounds/whistle.wav');
 var enterSlowMo = new Audio('sounds/enterSlowMo.wav');
-//var soundtrack1 = new Audio('sounds/progressive.wav');
-//var soundtrack2 = new Audio('sounds/gametune2.wav');
+
+//random song is selected from tunes list
 var tunes = ['sounds/progressive.wav', 'sounds/gametune2.wav', 'sounds/gametune1.wav'];
 var soundtrack = new Audio(tunes[(Math.floor(Math.random() * 3))]);
+
 var playedSlowMoAudio = false;
-var zoomedIn = false;
 var exitSlowMo = new Audio('sounds/exitSlowMo.wav');
 var switchedStates = false;
 
@@ -72,10 +71,8 @@ var decreaseY = 0;
 var framesPerBall = 30; //decreases as points increase
 var firstGame = true;
 
-/*
-Kids work as borders for the game screen
- */
 
+//Kids work as borders for the game screen
 var kids = new Image();
 kids.src = 'sprites/kids.png';
 kids.style.height = "100 px";
@@ -125,28 +122,17 @@ teacherSound.style.width = '300px';
 
 var teacherX = -50;
 
-var buttonVisible = false;
-var buttonRect = {
-    x: 0.42 * levelWidth,
-    y:550,
-    width:120,
-    height:50
-};
-
 function updateMuted(){
     if(muted){
         document.getElementById("muteIcon").src = "controls/audio_on.png"
         if (!dead)
             soundtrack.volume = 1;
-//mutedPath = "controls/audio_on.png";
     }
     else{
-//mutedPath = "controls/audio_off.png";
         document.getElementById("muteIcon").src = "controls/audio_off.png"
         soundtrack.volume = 0;
     }
     muted = !muted;
-
 }
 
 function checkPoints() {
@@ -182,7 +168,6 @@ function checkPoints() {
     else if (score > 10) {
         framesPerBall = 25;
     }
-
 }
 
 function playStart(){
@@ -195,6 +180,7 @@ function moveToBox2(){
     document.getElementById('startBox2').style.display = "inherit";
 }
 
+//play raise hand animation before starting game
 function playAnimation(ready){
     document.getElementById('hand').className = "movingHand";
 
@@ -221,11 +207,9 @@ function playAnimation(ready){
 }
 
 function component(width, height, color, x, y, type) {
-    this.type = type;
     if (type == "image") {
         this.image = new Image();
         this.image.src = color;
-//this.caller.setAttribute("id", "test");
     }
     this.width = width;
     this.height = height;
@@ -317,7 +301,6 @@ function resetGame(){
 
     myGameArea.start();
 }
-
 
 var myGameArea = {
     canvas: document.createElement("canvas"), //temp?
@@ -675,8 +658,6 @@ function GetElementInsideContainer(containerID, childID) {
     return (parent.id && parent.id === containerID) ? elm : {};
 }
 
-//can these be removed?
-
 document.addEventListener('keydown', function (e) {
     keys[e.keyCode] = e.keyCode;
 });
@@ -844,4 +825,3 @@ function executeMoves() {
         executeMoves;
     }
 }
-
