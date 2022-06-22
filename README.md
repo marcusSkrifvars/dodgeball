@@ -12,4 +12,6 @@ The long pause in development means that there can be some inconsistencies in th
 
 Everything created by me, except for sound effects (slowmo, whistle, dodgeball hit sound, oof!)
 
-The game is very unfair and highly based on luck, but I think it suits the subject :)
+The game is very unfair and highly luck-based, but I think it suits the subject :)
+
+Play here: https://dodgeball.vercel.app/
